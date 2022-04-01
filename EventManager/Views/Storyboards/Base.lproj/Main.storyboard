@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IMj-Qf-6ms">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Event List Table View Controller-->
+        <scene sceneID="H9H-z0-OhM">
+            <objects>
+                <tableViewController id="ShQ-ta-Cv6" customClass="EventListTableViewController" customModule="EventManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="yi4-yP-TmT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="65" id="KJ3-7C-FJ9" customClass="EventTableViewCell" customModule="EventManager" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="65"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KJ3-7C-FJ9" id="Qdt-BE-NbC">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(title)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRm-Zy-kcM">
+                                            <rect key="frame" x="28" y="18" width="305" height="29"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pd-e6-aDI">
+                                            <rect key="frame" x="341" y="17.5" width="65" height="30.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="65" id="47K-Iz-M3f"/>
+                                                <constraint firstAttribute="height" constant="30.5" id="Caz-om-For"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Button" image="person.fill.checkmark" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="default"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="attendingButtonTapped:" destination="KJ3-7C-FJ9" eventType="touchUpInside" id="mzd-Ew-P41"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="6pd-e6-aDI" secondAttribute="trailing" constant="8" id="KsF-dj-5XP"/>
+                                        <constraint firstItem="6pd-e6-aDI" firstAttribute="centerY" secondItem="Qdt-BE-NbC" secondAttribute="centerY" id="Rp5-pQ-wpn"/>
+                                        <constraint firstItem="GRm-Zy-kcM" firstAttribute="leading" secondItem="Qdt-BE-NbC" secondAttribute="leadingMargin" constant="8" id="YcT-yJ-BXc"/>
+                                        <constraint firstItem="6pd-e6-aDI" firstAttribute="leading" secondItem="GRm-Zy-kcM" secondAttribute="trailing" constant="8" id="u0D-vM-cEw"/>
+                                        <constraint firstItem="GRm-Zy-kcM" firstAttribute="centerY" secondItem="Qdt-BE-NbC" secondAttribute="centerY" id="ycH-9f-3cY"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="attendingButton" destination="6pd-e6-aDI" id="PEm-4O-hNY"/>
+                                    <outlet property="titleLabel" destination="GRm-Zy-kcM" id="7Hc-wq-ZMy"/>
+                                    <segue destination="lnV-dW-5Bj" kind="show" identifier="toDetailVC" id="w5Y-YU-GQr"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ShQ-ta-Cv6" id="0k5-4o-UYy"/>
+                            <outlet property="delegate" destination="ShQ-ta-Cv6" id="7LD-wO-AJp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="PMH-JQ-W73">
+                        <barButtonItem key="rightBarButtonItem" image="calendar.badge.plus" catalog="system" id="ZkN-7V-Xdv">
+                            <connections>
+                                <segue destination="lnV-dW-5Bj" kind="show" id="KU4-b5-Mn2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e3B-tA-ARO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="810.14492753623199" y="95.758928571428569"/>
+        </scene>
+        <!--Event Detail View Controller-->
+        <scene sceneID="338-mW-3N2">
+            <objects>
+                <viewController id="lnV-dW-5Bj" customClass="EventDetailViewController" customModule="EventManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bdh-Xa-Ryi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRT-do-FS0">
+                                <rect key="frame" x="84" y="96" width="246" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event title..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2K2-BD-u14">
+                                <rect key="frame" x="41.5" y="167" width="331" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="aiF-Im-f9C">
+                                <rect key="frame" x="39" y="233" width="336" height="354"/>
+                                <connections>
+                                    <action selector="dateChanged:" destination="lnV-dW-5Bj" eventType="valueChanged" id="Fgp-WP-3qa"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AF7-ja-Wbs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qRT-do-FS0" firstAttribute="centerX" secondItem="bdh-Xa-Ryi" secondAttribute="centerX" id="A8z-VP-7vx"/>
+                            <constraint firstItem="2K2-BD-u14" firstAttribute="top" secondItem="qRT-do-FS0" secondAttribute="bottom" constant="32" id="HVA-2p-eyb"/>
+                            <constraint firstItem="aiF-Im-f9C" firstAttribute="top" secondItem="2K2-BD-u14" secondAttribute="bottom" constant="32" id="KUc-5n-sAY"/>
+                            <constraint firstItem="qRT-do-FS0" firstAttribute="top" secondItem="AF7-ja-Wbs" secondAttribute="top" constant="8" id="iXe-OW-ZTp"/>
+                            <constraint firstItem="2K2-BD-u14" firstAttribute="centerX" secondItem="AF7-ja-Wbs" secondAttribute="centerX" id="j2L-gJ-SAT"/>
+                            <constraint firstItem="2K2-BD-u14" firstAttribute="width" secondItem="bdh-Xa-Ryi" secondAttribute="width" multiplier="0.8" id="tDr-xC-R3L"/>
+                            <constraint firstItem="aiF-Im-f9C" firstAttribute="centerX" secondItem="bdh-Xa-Ryi" secondAttribute="centerX" id="tqi-uP-L5e"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="uF9-D4-mfq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="3h3-hJ-L6m">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="lnV-dW-5Bj" id="8F1-N7-Zp7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="aiF-Im-f9C" id="z5d-f0-8bF"/>
+                        <outlet property="titleTextField" destination="2K2-BD-u14" id="WZ4-iD-BsQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ld2-If-Q0J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1758" y="96"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nV6-BM-nqA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IMj-Qf-6ms" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hmP-yi-Nt2">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ShQ-ta-Cv6" kind="relationship" relationship="rootViewController" id="B0o-aG-Hq2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dQF-jT-QZh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-130" y="96"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="w5Y-YU-GQr"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="calendar.badge.plus" catalog="system" width="128" height="108"/>
+        <image name="person.fill.checkmark" catalog="system" width="128" height="88"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
